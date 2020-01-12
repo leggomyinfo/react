@@ -124,6 +124,7 @@ export default class Controls extends Component {
     if (mode == 'me') {
       //clear search value
       this.props.state.input.search = '';
+      settings.filters = ['distance', 'day', 'time', 'type'];
     } else {
       //focus after waiting for disabled to clear
       setTimeout(
@@ -132,6 +133,7 @@ export default class Controls extends Component {
         }.bind(this),
         100
       );
+      settings.filters = ['region', 'day', 'time', 'type'];
     }
     this.props.state.input.mode = mode;
     this.props.setAppState('input', this.props.state.input);

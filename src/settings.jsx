@@ -20,6 +20,7 @@ export const settings = merge(
       'friday',
       'saturday',
     ],
+    distances: [1, 2, 5, 10, 25, 50],
     distance_unit: 'mi', // "mi" for miles, "km" for kilometers
     filters: ['region', 'day', 'time', 'type'],
     keys: {
