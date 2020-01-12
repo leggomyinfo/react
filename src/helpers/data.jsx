@@ -337,6 +337,10 @@ export function loadMeetingData(meetings, capabilities) {
   indexes.region.sort((a, b) => {
     return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
   });
+  console.log(indexes.region);
+
+  //convert geolocation to array
+  indexes.geolocation = [];
 
   //convert day to array and sort by ordinal
   indexes.day = Object.values(indexes.day);

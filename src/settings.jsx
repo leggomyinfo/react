@@ -20,7 +20,8 @@ export const settings = merge(
       'friday',
       'saturday',
     ],
-    distances: [1, 2, 5, 10, 25, 50],
+    geolocation2: [1, 2, 5, 10, 25, 50],  // geolocation distances
+    geolocation: ["1", "2"],
     distance_unit: 'mi', // "mi" for miles, "km" for kilometers
     filters: ['region', 'day', 'time', 'type'],
     keys: {

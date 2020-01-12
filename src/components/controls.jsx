@@ -124,7 +124,7 @@ export default class Controls extends Component {
     if (mode == 'me') {
       //clear search value
       this.props.state.input.search = '';
-      settings.filters = ['distance', 'day', 'time', 'type'];
+      settings.filters = ['geolocation', 'day', 'time', 'type'];
     } else {
       //focus after waiting for disabled to clear
       setTimeout(
