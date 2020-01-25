@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames/bind';
 
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 import WebMercatorViewport from 'viewport-mercator-project';
@@ -113,7 +114,11 @@ export default class Map extends Component {
     }
 
     return (
-      <div className="border rounded bg-light flex-grow-1 map">
+      <div
+        className={cx('border rounded bg-light flex-grow-1 map', {
+          'd-none': !this.props.state.capabilities.map,
+        })}
+      >
         {this.state.viewport && (
           <ReactMapGL
             {...this.state.viewport}
