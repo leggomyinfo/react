@@ -52,6 +52,17 @@ class App extends React.Component {
 
     //need to bind this for the function to access `this`
     this.setAppState = this.setAppState.bind(this);
+
+    //catch back button navigation
+    window.onpopstate = () => {
+      console.log('popstate: ' + location.search);
+      this.setAppState('input', getQueryString(location.search));
+    }
+
+    //catch forward button navigation?
+    window.onpushstate = () => {
+      console.log('pushstate: ' + location.search);
+    }
   }
 
   componentDidMount() {
