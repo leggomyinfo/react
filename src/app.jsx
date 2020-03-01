@@ -28,6 +28,7 @@ class App extends React.Component {
         geolocation: false,
         map: false,
         region: false,
+        regions: false,
         time: false,
         type: false,
       },
@@ -42,6 +43,7 @@ class App extends React.Component {
       loading: true,
       map_initialized: false,
       meetings: [],
+      region_tree: [],
     };
 
     //need to bind this for the function to access `this`
@@ -69,10 +71,12 @@ class App extends React.Component {
             result = translateGoogleSheet(result);
           }
 
-          const [meetings, indexes, capabilities] = loadMeetingData(
+          const [meetings, indexes, capabilities, regions] = loadMeetingData(
             result,
             this.state.capabilities
           );
+
+          console.log(regions)
 
           this.setState({
             capabilities: capabilities,

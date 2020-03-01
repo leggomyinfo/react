@@ -100,6 +100,43 @@ function getCommonElements(arrays) {
   return Object.keys(currentValues);
 }
 
+// This function builds the hierarchical region tree
+function updateRegionChildren(children, regions, level) {
+  if (regions.length) {
+    var currentRegionLabel = regions.shift();
+    var currentRegionValue = level.toString() + "::" + currentRegionLabel.replace(/[\W_]+/g, "-").toLowerCase();
+    var found = false;
+
+    for (var i = 0; i < children.length; i++) {
+      if (currentRegionValue == children[i].value) {
+        // We found a child with the value. Updated it's children with any remaining
+        // children
+        children[i].children = updateRegionChildren(children[i].children, regions, level + 1);
+
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      if (regions.length) {
+        children.push({
+          "label": currentRegionLabel,
+          "value": currentRegionValue,
+          "children": updateRegionChildren([], regions, level + 1),
+        });
+      } else {
+        children.push({
+          "label": currentRegionLabel,
+          "value": currentRegionValue,
+        });
+      }
+    }
+  }
+
+  return children
+}
+
 //set up meeting data; this is only run once when the app loads
 export function loadMeetingData(meetings, capabilities) {
   //indexes start as objects, will be converted to arrays
@@ -109,6 +146,12 @@ export function loadMeetingData(meetings, capabilities) {
     time: {},
     type: {},
   };
+
+  let regions = {
+    "label": "Everywhere",
+    "value": "0::everywhere",
+    "children": [],
+  }
 
   //filter out unused meetings properties for a leaner memory footprint
   const meeting_properties = [
@@ -183,6 +226,14 @@ export function loadMeetingData(meetings, capabilities) {
         };
       }
       indexes.region[meeting.region].slugs.push(meeting.slug);
+    }
+
+    // If tree of regions, build the tree needed by the plugin
+    if (meeting.regions) {
+      capabilities.regions = true;
+
+      // Recursively populate the region tree
+      regions.children = updateRegionChildren(regions.children, meeting.regions, 1);
     }
 
     //format day
@@ -407,7 +458,7 @@ export function loadMeetingData(meetings, capabilities) {
     return 0;
   });
 
-  return [meetings, indexes, capabilities];
+  return [meetings, indexes, capabilities, regions];
 }
 
 //translates Google Sheet JSON into Meeting Guide format
