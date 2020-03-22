@@ -130,6 +130,8 @@ export function loadMeetingData(meetings, capabilities) {
     'sub_region',
     'time',
     'types',
+    'video_conference_url',
+    'video_conference_phone',
   ];
 
   //define lookups we'll need later
