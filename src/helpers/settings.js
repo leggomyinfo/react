@@ -138,6 +138,7 @@ export const settings = merge(
           S: 'Spanish',
           SP: 'Speaker',
           ST: 'Step Meeting',
+          TC: 'Temporary Closure',
           TR: 'Tradition Study',
           T: 'Transgender',
           X: 'Wheelchair Access',
