@@ -245,6 +245,7 @@ export const settings = merge(
           S: 'Español',
           SP: 'Altavoz',
           ST: 'Paso de reunión',
+          TC: 'Cierre Temporal',
           TR: 'Estudio de tradicion',
           T: 'Transgénero',
           X: 'Acceso en silla de ruedas',
