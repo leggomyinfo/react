@@ -449,26 +449,15 @@ export function translateGoogleSheet(data) {
   return meetings;
 }
 
-// Returns the host name only for a full URL 
+// Returns the host name only for a full URL
 export function getDomainName(url) {
     // Example input: url = "https://zoom.us/j/1234123498?pwd=23a23ofnuao32irufnio23ufa2"
     // Example output: "zoom.us"
     if (!url.length) {
-      return "";
-    }
-    var hostname;
-
-    if (url.indexOf("//") > -1) {
-        hostname = url.split('/')[2];
+        return "";
     } else {
-        hostname = url.split('/')[0];
+        return url.match(/^(?:https?:)?(?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
     }
-
-    // Remove port numbers & query strings
-    hostname = hostname.split(':')[0];
-    hostname = hostname.split('?')[0];
-
-    return hostname;
 }
 
 // converts a search string into pipe delimited format. Example:
