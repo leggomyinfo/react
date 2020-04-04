@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames/bind';
 
 import { settings, strings } from '../helpers/settings';
+import { getDomainName } from '../helpers/data';
 import Link from './link';
 
 export default class Table extends Component {
@@ -22,10 +23,11 @@ export default class Table extends Component {
         />
       );
     } else if (key == 'location' && meeting.video_conference_url) {
+      const conference_domain = getDomainName(meeting.video_conference_url);
       return (
         <div className="location">
           <a href={meeting.video_conference_url} target="_blank">
-            {meeting.video_conference_url}
+            Join Online ({conference_domain})
           </a>
           <br />
           Phone: {meeting.video_conference_phone}
