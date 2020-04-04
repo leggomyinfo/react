@@ -451,13 +451,13 @@ export function translateGoogleSheet(data) {
 
 // Returns the host name only for a full URL
 export function getDomainName(url) {
-    // Example input: url = "https://zoom.us/j/1234123498?pwd=23a23ofnuao32irufnio23ufa2"
-    // Example output: "zoom.us"
-    if (!url.length) {
-        return "";
-    } else {
-        return url.match(/^(?:https?:)?(?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
-    }
+  // Example input: url = "https://zoom.us/j/1234123498?pwd=23a23ofnuao32irufnio23ufa2"
+  // Example output: "zoom.us"
+  if (!url.length) {
+    return "";
+  } else {
+    return url.match(/^(?:https?:)?(?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
+  }
 }
 
 // converts a search string into pipe delimited format. Example:
