@@ -121,21 +121,21 @@ export default class Meeting extends Component {
                 )}
               </div>
               {meeting.conference_url.length &&
-              <div className="list-group-item">
-                <h5>Video Conference</h5>
-                <a
-                  className="btn btn-outline-secondary btn-block mb-3"
-                  target="_blank"
-                  href={meeting.conference_url}
-                >
-                  Join with {getDomainName(meeting.conference_url)}
-                </a>
-                {meeting.conference_phone.length &&
-                  <p>
-                    Phone: {meeting.conference_phone}
-                  </p>
-                }
-              </div>
+                <div className="list-group-item">
+                  <h5>Video Conference</h5>
+                  <a
+                    className="btn btn-outline-secondary btn-block mb-3"
+                    target="_blank"
+                    href={meeting.conference_url}
+                  >
+                    Join with {getDomainName(meeting.conference_url)}
+                  </a>
+                  {meeting.conference_phone.length &&
+                    <p>
+                      Phone: {meeting.conference_phone}
+                    </p>
+                  }
+                </div>
               }
               <div className="list-group-item">
                 <h5>{meeting.location}</h5>
