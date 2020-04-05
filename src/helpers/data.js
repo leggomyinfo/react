@@ -130,8 +130,8 @@ export function loadMeetingData(meetings, capabilities) {
     'sub_region',
     'time',
     'types',
-    'conference_url',
-    'conference_phone',
+    'venmo',
+    'paypal',
   ];
 
   //define lookups we'll need later

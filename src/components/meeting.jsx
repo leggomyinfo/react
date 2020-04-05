@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames/bind';
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 
+import { getDomainName } from '../helpers/data';
 import { settings, strings } from '../helpers/settings';
 import Link from './link';
 import Name from './name';
@@ -119,6 +120,35 @@ export default class Meeting extends Component {
                   </p>
                 )}
               </div>
+              {(meeting.venmo.length || meeting.paypal.length) &&
+              <div className="list-group-item">
+                <h5>Seventh Tradition</h5>
+                <div className="row">
+                {meeting.venmo.length &&
+                  <div className="col">
+                    <a
+                      className="btn btn-outline-secondary btn-block mb-3"
+                      target="_blank"
+                      href={meeting.venmo.replace('@', 'https://venmo.com/')}
+                    >
+                      Venmo
+                    </a>
+                  </div>
+                }
+                {meeting.paypal.length && 
+                  <div className="col">
+                    <a
+                      className="btn btn-outline-secondary btn-block mb-3"
+                      target="_blank"
+                      href={meeting.paypal}
+                    >
+                      PayPal
+                    </a>
+                  </div>
+                }
+                </div>
+              </div>
+              }
               <div className="list-group-item">
                 <h5>{meeting.location}</h5>
                 <p className="my-0 mt-1">{meeting.formatted_address}</p>

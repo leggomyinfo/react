@@ -50356,9 +50356,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames_bind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames/bind */ "./node_modules/classnames/bind.js");
 /* harmony import */ var classnames_bind__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames_bind__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_map_gl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-map-gl */ "./node_modules/react-map-gl/dist/esm/index.js");
-/* harmony import */ var _helpers_settings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/settings */ "./src/helpers/settings.js");
-/* harmony import */ var _link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./link */ "./src/components/link.jsx");
-/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./name */ "./src/components/name.jsx");
+/* harmony import */ var _helpers_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/data */ "./src/helpers/data.js");
+/* harmony import */ var _helpers_settings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/settings */ "./src/helpers/settings.js");
+/* harmony import */ var _link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./link */ "./src/components/link.jsx");
+/* harmony import */ var _name__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./name */ "./src/components/name.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -50378,6 +50379,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -50461,7 +50463,7 @@ function (_Component) {
         className: "flex-column flex-grow-1 d-flex"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "font-weight-light mb-1"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_name__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_name__WEBPACK_IMPORTED_MODULE_6__["default"], {
         meeting: meeting
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
         className: "mb-3 border-bottom pb-2"
@@ -50472,7 +50474,7 @@ function (_Component) {
         onClick: function onClick(event) {
           return _this2.goBack(event);
         }
-      }, _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["strings"].back_to_meetings)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["strings"].back_to_meetings)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row flex-grow-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mb-3 col-md-4 mb-md-0"
@@ -50480,13 +50482,13 @@ function (_Component) {
         className: "btn btn-outline-secondary btn-block mb-3",
         href: meeting.direction_link,
         target: "_blank"
-      }, _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["strings"].get_directions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["strings"].get_directions), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-group-item border-bottom-0"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["strings"].meeting_information), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["strings"].meeting_information), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "my-0 mt-1"
-      }, _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["strings"][_helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].days[meeting.day]], ",", ' ', meeting.formatted_time, meeting.end_time ? ' – ' + meeting.formatted_end_time : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["strings"][_helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].days[meeting.day]], ",", ' ', meeting.formatted_time, meeting.end_time ? ' – ' + meeting.formatted_end_time : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: classnames_bind__WEBPACK_IMPORTED_MODULE_1___default()('my-0 mt-1', {
           'd-none': !meeting.types || !meeting.types.length
         })
@@ -50496,11 +50498,27 @@ function (_Component) {
         }, type);
       }) : ''), meeting.notes && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "my-0 mt-2"
-      }, meeting.notes.replace(/(?:\r\n|\r|\n)/g, '<br>'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, meeting.notes.replace(/(?:\r\n|\r|\n)/g, '<br>'))), (meeting.venmo.length || meeting.paypal.length) && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "list-group-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Seventh Tradition"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, meeting.venmo.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "btn btn-outline-secondary btn-block mb-3",
+        target: "_blank",
+        href: meeting.venmo.replace('@', 'https://venmo.com/')
+      }, "Venmo")), meeting.paypal.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "btn btn-outline-secondary btn-block mb-3",
+        target: "_blank",
+        href: meeting.paypal
+      }, "PayPal")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-group-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, meeting.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "my-0 mt-1"
-      }, meeting.formatted_address), this.props.state.meetings && meeting && meeting.hasOwnProperty('formatted_address') && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].days.map(function (day, index) {
+      }, meeting.formatted_address), this.props.state.meetings && meeting && meeting.hasOwnProperty('formatted_address') && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].days.map(function (day, index) {
         var meetings = _this2.props.state.meetings.filter(function (m) {
           return m.day == index && m.formatted_address === meeting.formatted_address;
         });
@@ -50509,7 +50527,7 @@ function (_Component) {
           key: day
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
           className: "mt-3 pb-2 border-bottom"
-        }, _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["strings"][day]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+        }, _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["strings"][day]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
           className: "m-0 p-0",
           style: {
             listStyleType: 'none'
@@ -50526,9 +50544,9 @@ function (_Component) {
               left: '1.25rem',
               width: '4.5rem'
             }
-          }, m.formatted_time), m.slug === meeting.slug && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_name__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          }, m.formatted_time), m.slug === meeting.slug && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_name__WEBPACK_IMPORTED_MODULE_6__["default"], {
             meeting: m
-          }), m.slug !== meeting.slug && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_link__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          }), m.slug !== meeting.slug && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_link__WEBPACK_IMPORTED_MODULE_5__["default"], {
             meeting: m,
             state: _this2.props.state,
             setAppState: _this2.props.setAppState
@@ -50541,19 +50559,19 @@ function (_Component) {
       }, this.state.viewport && meeting.latitude && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_map_gl__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
         className: "rounded border bg-light"
       }, this.state.viewport, {
-        mapboxApiAccessToken: _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].keys.mapbox,
-        mapStyle: _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].mapbox_style,
+        mapboxApiAccessToken: _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].keys.mapbox,
+        mapStyle: _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].mapbox_style,
         onViewportChange: this.updateViewport,
         width: "100%",
         height: "100%"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_map_gl__WEBPACK_IMPORTED_MODULE_2__["Marker"], {
         latitude: meeting.latitude,
         longitude: meeting.longitude,
-        offsetLeft: -_helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].marker_style.width / 2,
-        offsetTop: -_helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].marker_style.height
+        offsetLeft: -_helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].marker_style.width / 2,
+        offsetTop: -_helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].marker_style.height
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         title: meeting.location,
-        style: _helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].marker_style,
+        style: _helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].marker_style,
         onClick: function onClick() {
           return _this2.setState({
             popup: true
@@ -50568,7 +50586,7 @@ function (_Component) {
             popup: false
           });
         },
-        offsetTop: -_helpers_settings__WEBPACK_IMPORTED_MODULE_3__["settings"].marker_style.height
+        offsetTop: -_helpers_settings__WEBPACK_IMPORTED_MODULE_4__["settings"].marker_style.height
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "font-weight-light"
       }, meeting.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, meeting.formatted_address)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -50921,7 +50939,7 @@ function loadMeetingData(meetings, capabilities) {
     type: {}
   }; //filter out unused meetings properties for a leaner memory footprint
 
-  var meeting_properties = ['day', 'end_time', 'flags', 'formatted_address', 'formatted_end_time', 'formatted_time', 'latitude', 'longitude', 'location', 'location_notes', 'name', 'notes', 'region', 'search', 'slug', 'sub_region', 'time', 'types', 'conference_url', 'conference_phone']; //define lookups we'll need later
+  var meeting_properties = ['day', 'end_time', 'flags', 'formatted_address', 'formatted_end_time', 'formatted_time', 'latitude', 'longitude', 'location', 'location_notes', 'name', 'notes', 'region', 'search', 'slug', 'sub_region', 'time', 'types', 'venmo', 'paypal']; //define lookups we'll need later
 
   var lookup_day = _settings__WEBPACK_IMPORTED_MODULE_0__["settings"].days.map(function (day) {
     return _settings__WEBPACK_IMPORTED_MODULE_0__["strings"][day];
