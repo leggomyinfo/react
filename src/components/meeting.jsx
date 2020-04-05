@@ -120,34 +120,51 @@ export default class Meeting extends Component {
                   </p>
                 )}
               </div>
-              {(meeting.venmo.length || meeting.paypal.length) &&
-              <div className="list-group-item">
-                <h5>Seventh Tradition</h5>
-                <div className="row">
-                {meeting.venmo.length &&
-                  <div className="col">
-                    <a
-                      className="btn btn-outline-secondary btn-block mb-3"
-                      target="_blank"
-                      href={meeting.venmo.replace('@', 'https://venmo.com/')}
-                    >
-                      Venmo
-                    </a>
-                  </div>
-                }
-                {meeting.paypal.length && 
-                  <div className="col">
-                    <a
-                      className="btn btn-outline-secondary btn-block mb-3"
-                      target="_blank"
-                      href={meeting.paypal}
-                    >
-                      PayPal
-                    </a>
-                  </div>
-                }
+              {meeting.conference_url.length &&
+                <div className="list-group-item">
+                  <h5>Video Conference</h5>
+                  <a
+                    className="btn btn-outline-secondary btn-block mb-3"
+                    target="_blank"
+                    href={meeting.conference_url}
+                  >
+                    Join with {getDomainName(meeting.conference_url)}
+                  </a>
+                  {meeting.conference_phone.length &&
+                    <p>
+                      Phone: {meeting.conference_phone}
+                    </p>
+                  }
                 </div>
-              </div>
+              }
+              {(meeting.venmo.length || meeting.paypal.length) &&
+                <div className="list-group-item">
+                  <h5>Seventh Tradition</h5>
+                  <div className="row">
+                    {meeting.venmo.length &&
+                      <div className="col">
+                        <a
+                          className="btn btn-outline-secondary btn-block mb-3"
+                          target="_blank"
+                          href={meeting.venmo.replace('@', 'https://venmo.com/')}
+                        >
+                          Venmo
+                        </a>
+                      </div>
+                    }
+                    {meeting.paypal.length && 
+                      <div className="col">
+                        <a
+                          className="btn btn-outline-secondary btn-block mb-3"
+                          target="_blank"
+                          href={meeting.paypal}
+                        >
+                          PayPal
+                        </a>
+                      </div>
+                    }
+                  </div>
+                </div>
               }
               <div className="list-group-item">
                 <h5>{meeting.location}</h5>
