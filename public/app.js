@@ -50498,17 +50498,17 @@ function (_Component) {
         }, type);
       }) : ''), meeting.notes && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "my-0 mt-2"
-      }, meeting.notes.replace(/(?:\r\n|\r|\n)/g, '<br>'))), (meeting.venmo.length || meeting.paypal.length) && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, meeting.notes.replace(/(?:\r\n|\r|\n)/g, '<br>'))), (meeting.venmo.length > 0 || meeting.paypal.length > 0) && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-group-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Seventh Tradition"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
-      }, meeting.venmo.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, meeting.venmo.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "btn btn-outline-secondary btn-block mb-3",
         target: "_blank",
         href: meeting.venmo.replace('@', 'https://venmo.com/')
-      }, "Venmo")), meeting.paypal.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Venmo")), meeting.paypal.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "btn btn-outline-secondary btn-block mb-3",
