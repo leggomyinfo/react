@@ -120,7 +120,7 @@ export default class Meeting extends Component {
                   </p>
                 )}
               </div>
-              {meeting.conference_url.length &&
+              {meeting.conference_url.length > 0 &&
                 <div className="list-group-item">
                   <h5>Video Conference</h5>
                   <a
@@ -130,7 +130,7 @@ export default class Meeting extends Component {
                   >
                     Join with {getDomainName(meeting.conference_url)}
                   </a>
-                  {meeting.conference_phone.length &&
+                  {meeting.conference_phone.length > 0 &&
                     <p>
                       Phone: {meeting.conference_phone}
                     </p>

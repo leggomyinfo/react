@@ -50498,13 +50498,13 @@ function (_Component) {
         }, type);
       }) : ''), meeting.notes && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "my-0 mt-2"
-      }, meeting.notes.replace(/(?:\r\n|\r|\n)/g, '<br>'))), meeting.conference_url.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, meeting.notes.replace(/(?:\r\n|\r|\n)/g, '<br>'))), meeting.conference_url.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-group-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Video Conference"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "btn btn-outline-secondary btn-block mb-3",
         target: "_blank",
         href: meeting.conference_url
-      }, "Join with ", Object(_helpers_data__WEBPACK_IMPORTED_MODULE_3__["getDomainName"])(meeting.conference_url)), meeting.conference_phone.length && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Phone: ", meeting.conference_phone)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Join with ", Object(_helpers_data__WEBPACK_IMPORTED_MODULE_3__["getDomainName"])(meeting.conference_url)), meeting.conference_phone.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Phone: ", meeting.conference_phone)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-group-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, meeting.location), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "my-0 mt-1"
