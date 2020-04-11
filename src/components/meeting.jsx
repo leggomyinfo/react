@@ -120,7 +120,7 @@ export default class Meeting extends Component {
                   </p>
                 )}
               </div>
-              {meeting.conference_url.length &&
+              {meeting.conference_url.length > 0 &&
                 <div className="list-group-item">
                   <h5>Video Conference</h5>
                   <a
@@ -130,18 +130,18 @@ export default class Meeting extends Component {
                   >
                     Join with {getDomainName(meeting.conference_url)}
                   </a>
-                  {meeting.conference_phone.length &&
+                  {meeting.conference_phone.length > 0 &&
                     <p>
                       Phone: {meeting.conference_phone}
                     </p>
                   }
                 </div>
               }
-              {(meeting.venmo.length || meeting.paypal.length) &&
+              {(meeting.venmo.length > 0 || meeting.paypal.length > 0) &&
                 <div className="list-group-item">
                   <h5>Seventh Tradition</h5>
                   <div className="row">
-                    {meeting.venmo.length &&
+                    {meeting.venmo.length > 0 &&
                       <div className="col">
                         <a
                           className="btn btn-outline-secondary btn-block mb-3"
@@ -152,7 +152,7 @@ export default class Meeting extends Component {
                         </a>
                       </div>
                     }
-                    {meeting.paypal.length && 
+                    {meeting.paypal.length > 0 && 
                       <div className="col">
                         <a
                           className="btn btn-outline-secondary btn-block mb-3"
